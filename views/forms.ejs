@@ -3,64 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Marks Entry</title>
+    <title>VTU SGPA Calculator</title>
 </head>
 <body>
     <h1>Enter Details</h1>
-    <form action="/calculate" method="post">
+    <form action="/calculate/new" method="POST">
         <div>
             <label for="name">Enter Name:</label>
-            <input type="text" id="name" placeholder="Enter name" name="name">
+            <input type="text" id="name" placeholder="Enter name" name="name" required>
         </div>
         <div>
             <label for="usn">Enter USN:</label>
-            <input type="text" id="usn" placeholder="Enter USN" name="usn">
+            <input type="text" id="usn" placeholder="Enter USN" name="usn" required>
         </div>
 
         <br>
-        <h3>Enter Marks</h3>
+        <h3>Enter Marks (0-100)</h3>
 
         <div>
             <label for="dsdv">DSDV:</label>
-            <input type="text" id="dsdv" placeholder="Enter DSDV marks" name="dsdv">
+            <input type="number" id="dsdv" placeholder="0-100" name="dsdv" min="0" max="100" required>
         </div>
 
         <div>
             <label for="epc">EPC:</label>
-            <input type="text" id="epc" placeholder="Enter EPC marks" name="epc">
+            <input type="number" id="epc" placeholder="0-100" name="epc" min="0" max="100" required>
         </div>
 
         <div>
             <label for="na">NA:</label>
-            <input type="text" id="na" placeholder="Enter NA marks" name="na">
+            <input type="number" id="na" placeholder="0-100" name="na" min="0" max="100" required>
         </div>
 
         <div>
             <label for="coa">COA:</label>
-            <input type="text" id="coa" placeholder="Enter COA marks" name="coa">
+            <input type="number" id="coa" placeholder="0-100" name="coa" min="0" max="100" required>
         </div>
 
         <div>
             <label for="math">Math:</label>
-            <input type="text" id="math" placeholder="Enter Math marks" name="math">
+            <input type="number" id="math" placeholder="0-100" name="math" min="0" max="100" required>
         </div>
 
         <div>
             <label for="adsdl">ADSDL:</label>
-            <input type="text" id="adsdl" placeholder="Enter ADSDL marks" name="adsdl">
+            <input type="number" id="adsdl" placeholder="0-100" name="adsdl" min="0" max="100" required>
         </div>
 
         <div>
             <label for="lpl">LPL:</label>
-            <input type="text" id="lpl" placeholder="Enter LPL marks" name="lpl">
+            <input type="number" id="lpl" placeholder="0-100" name="lpl" min="0" max="100" required>
         </div>
 
         <div>
             <label for="scr">SCR:</label>
-            <input type="text" id="scr" placeholder="Enter SCR marks" name="scr">
+            <input type="number" id="scr" placeholder="0-100" name="scr" min="0" max="100" required>
         </div>
+
         <br>
-        <button>Calculate</button>
+        <button type="submit">Calculate</button>
     </form>
 </body>
 </html>

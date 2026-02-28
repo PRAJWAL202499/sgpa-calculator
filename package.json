@@ -1,0 +1,27 @@
+{
+  "name": "sgpa-calc",
+  "version": "1.0.0",
+  "description": "calculate sgpa seemlesly specialy designed for vtu",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i > node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PRAJWAL202499/sgpa-calculator.git"
+  },
+  "keywords": [
+    "sgpa",
+    "vtu"
+  ],
+  "author": "prajwal G S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PRAJWAL202499/sgpa-calculator/issues"
+  },
+  "homepage": "https://github.com/PRAJWAL202499/sgpa-calculator#readme",
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  }
+}

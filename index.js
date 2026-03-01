@@ -34,6 +34,10 @@ app.get("/calculate" , (req,res)=>{
     res.render("forms.ejs");
 });
 
+app.get("/sgpa/ranking" , (req,res)=>{
+  res.render("ranking.ejs")
+})
+
 app.post("/calculate/new", (req, res) => {
   const info = req.body;
   const sgpa = calculateGPA(info);

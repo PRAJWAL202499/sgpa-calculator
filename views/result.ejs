@@ -1,85 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Result | SGPA Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        body { background-color: #f4f7f6; min-height: 100vh; display: flex; flex-direction: column; }
-        .result-card { border: none; border-radius: 20px; overflow: hidden; }
-        .result-header { background: #212529; color: white; padding: 40px; }
-        .sgpa-display { font-size: 5rem; font-weight: 800; color: #212529; margin: 20px 0; animation: scaleUp 0.5s ease-out; }
-        
-        @keyframes scaleUp {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+      body {
+        background-color: #f4f7f6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .result-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .result-header {
+        background: #212529;
+        color: white;
+        padding: 40px;
+      }
+      .sgpa-display {
+        font-size: 5rem;
+        font-weight: 800;
+        color: #212529;
+        margin: 20px 0;
+        animation: scaleUp 0.5s ease-out;
+      }
+
+      @keyframes scaleUp {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
         }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-        footer { background: #212529; color: white; padding: 30px 0; margin-top: auto; }
-        .social-link { color: white; font-size: 1.8rem; margin: 0 15px; transition: 0.3s; }
-        .social-link:hover { color: #888; transform: translateY(-3px); }
-        
-        .btn-outline-dark { border-radius: 50px; border-width: 2px; font-weight: 600; }
-        .btn-dark { border-radius: 50px; font-weight: 600; }
+      footer {
+        background: #212529;
+        color: white;
+        padding: 30px 0;
+        margin-top: auto;
+      }
+      .social-link {
+        color: white;
+        font-size: 1.8rem;
+        margin: 0 15px;
+        transition: 0.3s;
+      }
+      .social-link:hover {
+        color: #888;
+        transform: translateY(-3px);
+      }
+
+      .btn-outline-dark {
+        border-radius: 50px;
+        border-width: 2px;
+        font-weight: 600;
+      }
+      .btn-dark {
+        border-radius: 50px;
+        font-weight: 600;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/home">SGPA CALC</a>
-        </div>
+      <div class="container">
+        <a class="navbar-brand" href="/home"
+          ><i class="fas fa-calculator me-2"></i>SGPA CALCULATOR</a
+        >
+      </div>
     </nav>
 
     <div class="container my-auto py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6 text-center">
-                <div class="card result-card shadow-lg">
-                    <div class="result-header">
-                        <i class="fas fa-check-circle fa-4x mb-3"></i>
-                        <h2 class="fw-bold">Congratulations!</h2>
-                        <p class="lead mb-0"><%= info.name %></p>
-                    </div>
-                    <div class="card-body p-5">
-                        <p class="text-muted text-uppercase fw-bold mb-0">Your 3rd Semester SGPA</p>
-                        <div class="sgpa-display"><%= sgpa %></div>
-                        <p class="text-secondary mb-4">Great work! Your result for USN <strong><%= info.usn %></strong> has been processed.</p>
-                        
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <a href="/home" class="btn btn-outline-dark btn-lg w-100">
-                                    <i class="fas fa-redo me-2"></i>Calculate Again
-                                </a>
-                            </div>
-                            <div class="col-sm-6">
-                                <a href="#" class="btn btn-dark btn-lg w-100">
-                                    <i class="fas fa-chart-bar me-2"></i>See Where You Stand
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 text-center">
+          <div class="card result-card shadow-lg">
+            <div class="result-header">
+              <i class="fas fa-check-circle fa-4x mb-3"></i>
+              <h2 class="fw-bold">Congratulations!</h2>
+              <p class="lead mb-0"><%= info.name %></p>
             </div>
+            <div class="card-body p-5">
+              <p class="text-muted text-uppercase fw-bold mb-0">
+                Your 3rd Semester SGPA
+              </p>
+              <div class="sgpa-display"><%= sgpa %></div>
+              <p class="text-secondary mb-4">
+                Great work! Your result for USN
+                <strong><%= info.usn %></strong> has been processed.
+              </p>
+
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <a href="/home" class="btn btn-outline-dark btn-lg w-100">
+                    <i class="fas fa-redo me-2"></i>Calculate Again
+                  </a>
+                </div>
+                <div class="col-sm-6">
+                  <a href="/sgpa/ranking<%= info.id %>" class="btn btn-dark btn-lg w-100">
+                    <i class="fas fa-chart-bar me-2"></i>See Where You Stand
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <footer>
-        <div class="container text-center">
-            <p class="mb-2">watch my other works on below social</p>
-            <div class="mb-3">
-                <a href="https://github.com/PRAJWAL202499" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/prajwal-g-s-aa0a4b352/" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            <p class="text-muted small mb-0">© 2026 SGPA Calculator. Built with Node.js & MySQL.</p>
+      <div class="container text-center">
+        <p class="mb-2">watch my other works on below social</p>
+        <div class="mb-3">
+          <a
+            href="https://github.com/PRAJWAL202499"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/prajwal-g-s-aa0a4b352/"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
+        <p class="text-muted small mb-0">
+          © 2026 SGPA Calculator. Built with Node.js & MySQL.
+        </p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

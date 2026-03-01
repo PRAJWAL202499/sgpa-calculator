@@ -23,7 +23,9 @@ const connection = mysql.createConnection({
   ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: true }
 });
 
-
+app.get("/" , (req,res)=>{
+  res.redirect("/home");
+});
 app.get("/home", (req, res) => {
   res.render("index.ejs");
 });

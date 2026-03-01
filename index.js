@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config();
 const crypto = require("crypto");
 const mysql = require("mysql2");
 const path = require("path");
@@ -14,10 +15,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "SGPA",
-  password: "Prajwal@2006",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: 4000,
+  ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: true }
 });
 
 
@@ -62,6 +65,7 @@ app.post("/calculate/new", (req, res) => {
   });
 });
 
-app.listen(8080, () => {
+const port = process.env.PORT;
+app.listen(port, () => {
   console.log("Server is running at http://localhost:8080/home");
 });

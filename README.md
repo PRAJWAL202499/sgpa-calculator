@@ -41,3 +41,5 @@ Want to tinker with the code? Here is how to get it running on your own machine:
 ```bash
     node index.js
 ```
+
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -h gateway01.ap-southeast-1.prod.aws.tidbcloud.com -P 4000 -u 39WvbtjbyHR2nGK.root -p"

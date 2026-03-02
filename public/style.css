@@ -2,6 +2,10 @@
   background-color: #212529 !important;
   color: white !important;
 }
+.navbar{
+  height :5rem;
+  box-shadow: 5px 5px 20px #5c6268 !important;
+}
 body {
   background-color: #f4f7f6;
   min-height: 100vh;
@@ -17,7 +21,7 @@ body {
   color: #495057;
 }
 .btn-primary {
-  background-color: #0d6efd;
+  background-color: #212529;
   border: none;
   padding: 12px;
   font-weight: bold;
@@ -25,7 +29,7 @@ body {
   transition: 0.3s;
 }
 .btn-primary:hover {
-  background-color: #0b5ed7;
+  background-color: #424f61;
   transform: translateY(-2px);
 }
 footer {
@@ -53,6 +57,7 @@ footer {
 .btn-calculate {
   padding: 20px 50px;
   font-size: 1.5rem;
+  box-shadow: 10px 10px 20px #212529 !important;
   border-radius: 50px;
   transition: 0.3s;
 }

@@ -101,5 +101,5 @@ app.post("/calculate/new", (req, res) => {
 
 const port = process.env.PORT;
 app.listen(port, () => {
-  console.log("Server is running at http://localhost:8080/home");
+  console.log("Server is running");
 });

@@ -12,13 +12,19 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: 4000,
   ssl: { minVersion: "TLSv1.2", rejectUnauthorized: true },
+
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 10000,
 });
 
 app.get("/", (req, res) => {
@@ -33,21 +39,43 @@ app.get("/calculate", (req, res) => {
 });
 
 app.get("/sgpa/ranking", (req, res) => {
-  res.render("ranking.ejs");
+  try {
+    q = `SELECT name, usn, sgpa FROM users ORDER BY sgpa DESC LIMIT 5;`;
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      res.render("ranking.ejs", { result });
+    });
+  } catch {
+    console.log(err);
+  }
 });
 
 app.post("/calculate/new", (req, res) => {
   const info = req.body;
   const sgpa = calculateGPA(info);
   const id = crypto.randomUUID();
+  const usn = info.usn.toUpperCase();
 
-  const query = `INSERT INTO users (id, name, usn, dsdv, epc, na, coa, math, adsdl, lpl, scr, sgpa) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const query = `
+  INSERT INTO users (id, name, usn, dsdv, epc, na, coa, math, adsdl, lpl, scr, sgpa) 
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  ON DUPLICATE KEY UPDATE 
+    name = VALUES(name),
+    dsdv = VALUES(dsdv),
+    epc = VALUES(epc),
+    na = VALUES(na),
+    coa = VALUES(coa),
+    math = VALUES(math),
+    adsdl = VALUES(adsdl),
+    lpl = VALUES(lpl),
+    scr = VALUES(scr),
+    sgpa = VALUES(sgpa)
+`;
 
   const values = [
     id,
     info.name,
-    info.usn,
+    usn,
     Number(info.dsdv),
     Number(info.epc),
     Number(info.na),
@@ -64,7 +92,6 @@ app.post("/calculate/new", (req, res) => {
         console.error("Database Error:", err);
         return res.status(500).send("Error saving data to database.");
       }
-      // Render the result page after successful DB insertion
       res.render("result.ejs", { info, sgpa });
     });
   } catch {

@@ -1,103 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enter Marks | SGPA Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/home"><i class="fas fa-calculator me-2"></i>SGPA CALCULATOR</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/home">Home</a>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="/home"
+          ><i class="fas fa-calculator me-2"></i>SGPA CALCULATOR</a
+        >
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/home">Home</a>
         </div>
+      </div>
     </nav>
 
     <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow">
-                    <div class="card-body p-4 p-md-5">
-                        <h2 class="text-center mb-4">Student Details & Marks</h2>
-                        <form action="/calculate/new" method="POST">
-                            
-                            <div class="row g-3 mb-4">
-                                <div class="col-md-6">
-                                    <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="name here" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="usn" class="form-label">USN</label>
-                                    <input type="text" class="form-control" id="usn" name="usn" placeholder="1CR24ECXXX" required>
-                                </div>
-                            </div>
-
-                            <h5 class="border-bottom pb-2 mb-3">Subject Marks (0-100)</h5>
-
-                            <div class="row g-3">
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">DSDV</label>
-                                    <input type="number" name="dsdv" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">EPC</label>
-                                    <input type="number" name="epc" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">NA</label>
-                                    <input type="number" name="na" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">COA</label>
-                                    <input type="number" name="coa" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">Math</label>
-                                    <input type="number" name="math" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">ADSDL</label>
-                                    <input type="number" name="adsdl" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">LPL</label>
-                                    <input type="number" name="lpl" class="form-control" min="0" max="100" required>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <label class="form-label">SCR</label>
-                                    <input type="number" name="scr" class="form-control" min="0" max="100" required>
-                                </div>
-                            </div>
-
-                            <div class="mt-5">
-                                <button type="submit" class="btn btn-primary w-100 shadow-sm">
-                                    <i class="fas fa-magic me-2"></i>Calculate
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="text-center mb-4">Student Details & Marks</h2>
+              <form action="/calculate/new" method="POST">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      name="name"
+                      placeholder="name here"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="usn" class="form-label">USN</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="usn"
+                      name="usn"
+                      placeholder="1CR24ECXXX"
+                      required
+                    />
+                  </div>
                 </div>
+
+                <h5 class="border-bottom pb-2 mb-3">Subject Marks (0-100)</h5>
+
+                <div class="row g-3">
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">DSDV</label>
+                    <input
+                      type="number"
+                      name="dsdv"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">EPC</label>
+                    <input
+                      type="number"
+                      name="epc"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">NA</label>
+                    <input
+                      type="number"
+                      name="na"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">COA</label>
+                    <input
+                      type="number"
+                      name="coa"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">Math</label>
+                    <input
+                      type="number"
+                      name="math"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">ADSDL</label>
+                    <input
+                      type="number"
+                      name="adsdl"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">LPL</label>
+                    <input
+                      type="number"
+                      name="lpl"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label">SCR</label>
+                    <input
+                      type="number"
+                      name="scr"
+                      class="form-control"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <button type="submit" class="btn btn-primary w-100 shadow-sm">
+                    <i class="fas fa-magic me-2"></i>Calculate
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <footer>
-        <div class="container text-center">
-            <p class="mb-2">watch my other works on below social</p>
-            <div class="mb-3">
-                <a href="https://github.com/PRAJWAL202499" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/prajwal-g-s-aa0a4b352/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="text-muted small mb-0">© 2026 SGPA Calculator. Built with Node.js & MySQL.</p>
+      <div class="container text-center">
+        <p class="mb-2">watch my other works on below social</p>
+        <div class="mb-3">
+          <a
+            href="https://github.com/PRAJWAL202499"
+            target="_blank"
+            class="social-link"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/prajwal-g-s-aa0a4b352/"
+            target="_blank"
+            class="social-link"
+            ><i class="fab fa-linkedin"></i
+          ></a>
         </div>
+        <p class="text-muted small mb-0">© 2026 All rights recived</p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

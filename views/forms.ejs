@@ -49,10 +49,10 @@
                     <label for="usn" class="form-label">USN</label>
                     <input
                       type="text"
-                      class="form-control"
-                      id="usn"
                       name="usn"
-                      placeholder="1CR24ECXXX"
+                      placeholder="ex: 1CR24EC000"
+                      pattern="1CR[0-9]{2}EC[0-9]{3}"
+                      title="Please enter a valid USN (e.g., 1CR24EC000)"
                       required
                     />
                   </div>

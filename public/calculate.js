@@ -12,8 +12,8 @@ const GradePoints = (totalMarks) => {
 const calculateGPA = (info) => {
     // List of subjects and their respective VTU credits
     const subjects = [
-        { marks: info.dsdv, credits: 3 },
-        { marks: info.epc, credits: 3 },
+        { marks: info.dsdv, credits: 4 },
+        { marks: info.epc, credits: 4 },
         { marks: info.na, credits: 3 },
         { marks: info.coa, credits: 3 },
         { marks: info.math, credits: 3 },

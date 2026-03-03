@@ -40,7 +40,7 @@ app.get("/calculate", (req, res) => {
 
 app.get("/sgpa/ranking", (req, res) => {
   try {
-    q = `SELECT name, usn, sgpa FROM users ORDER BY sgpa DESC LIMIT 5;`;
+    q = `SELECT ANY_VALUE(name) as name, usn, MAX(sgpa) as sgpa FROM users GROUP BY usn ORDER BY sgpa DESC LIMIT 5;`;
     connection.query(q, (err, result) => {
       if (err) throw err;
       res.render("ranking.ejs", { result });
